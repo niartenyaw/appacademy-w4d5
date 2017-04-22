@@ -14,13 +14,13 @@ feature "the signup process" do
 
     before(:each) do
       visit new_user_url
-      fill_in 'email', :with => "email1"
-      fill_in 'password', :with => "password"
-      click_on "Create User"
+      fill_in('email', :with => 'email1')
+      fill_in('password', :with => 'password')
+      click_on('Submit')
     end
 
     scenario "redirects to goals index page after signup" do
-      expect(page).to have_content "Goals"
+      expect(page).to have_content "Goals#index"
     end
 
     scenario "shows username on the homepage after signup" do

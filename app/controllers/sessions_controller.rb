@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
     user = User.find_by_credentials(user_params[:email], user_params[:password])
     if user
       log_in_user!(user)
+      #debugger
+      redirect_to goals_url
     else
       flash[:errors] = ["The email/password combination is invalid."]
       redirect_to new_sessions_url
@@ -16,6 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out_user!
+    redirect_to goals_url
   end
 
   private
